@@ -1,0 +1,29 @@
+<%- partial('_partial/head') %>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <%- partial('_partial/header', null, {cache: !config.relative_link}) %>
+      <div class="outer">
+        <section id="main"><%- body %></section>
+        <% if (theme.sidebar && theme.sidebar !== 'bottom'){ %>
+          <%- partial('_partial/sidebar', null, {cache: !config.relative_link}) %>
+        <% } %>
+      </div>
+      <%- partial('_partial/footer', null, {cache: !config.relative_link}) %>
+    </div>
+    <%- partial('_partial/mobile-nav', null, {cache: !config.relative_link}) %>
+    <%- partial('_partial/after-footer') %>
+  </div>
+  <script src="/js/script.js"></script>
+
+  <!--custom  start-->
+  <% if (config.live2d.enable){ %>
+    <canvas id="pio" width="280" height="250"></canvas>
+    <script src='/js/live2d.js'></script>
+    <script>loadlive2d('pio', '<%- config.live2d.modeljson %>');</script>
+  <% } %>
+  <script src="/js/customized.js"></script>
+  <!--custom end-->
+
+</body>
+</html>

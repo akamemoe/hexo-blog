@@ -1,0 +1,37 @@
+language: node_js
+node_js: stable
+
+branches:
+  only:
+    - master
+
+cache:
+  directories:
+    - node_modules
+
+before_install:
+  - git config --global user.name "Alisa_Destiny"
+  - git config --global user.email "me@gentlehu.com"
+
+install:
+  - npm install
+  - npm install hexo --save
+  
+script:
+  - hexo clean
+  - hexo g
+  - cd ./public
+  - git init
+  - git add .
+  - git commit -m "auto deploy by travis-ci"
+  - git push --force "https://Alisa_Destiny:${CODING_TOKEN}@${CODING_REF}" master:master
+  
+after_success:
+  - echo "deploy successfully"
+  - cd ..
+  - git push "https://Alisa_Destiny:${CODING_TOKEN}@${CODING_REF}" master:source
+  
+after_failure:
+  - echo "deploy failed."
+  - curl -s "https://sc.ftqq.com/${SCU_KEY}.send?text=报告老板：hexo-blog自动部署失败"
+    

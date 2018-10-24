@@ -1,0 +1,107 @@
+# Hexo Configuration
+## Docs: https://hexo.io/docs/configuration.html
+## Source: https://github.com/hexojs/hexo/
+
+# Site
+title: 去年今日，来年如昨
+subtitle: Rome was not built in a day.
+description: 去年今日，来年如昨
+author: Akame-moe
+language: zh-CN
+timezone: Asia/Shanghai
+
+# URL
+## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
+#url: https://blog.gentlehu.com
+url: /
+root: /
+permalink: :year/:month/:title/
+permalink_defaults:
+
+# Directory
+source_dir: source
+public_dir: public
+tag_dir: tags
+archive_dir: archives
+category_dir: categories
+code_dir: downloads/code
+i18n_dir: :lang
+#下面的目录直接放在public目录，不渲染
+skip_render:
+  - assets/**
+  - css/**
+  - fancybox/**
+  - fonts/**
+  - images/**
+  - js/** 
+
+# Writing
+new_post_name: :title.md # File name of new posts
+default_layout: post
+titlecase: false # Transform title into titlecase
+external_link: true # Open external links in new tab
+filename_case: 0
+render_drafts: false
+post_asset_folder: false
+relative_link: false
+future: true
+highlight:
+  enable: true
+  line_number: true
+  auto_detect: false
+  tab_replace: "    "
+
+live2d:
+  enable: true
+  modeljson: /assets/pio/model-3.json
+
+#是否开启文章底部的打赏按钮配置
+#可以在文章的md文件中配置rewards_disable: true对单个文章关闭打赏
+rewards:
+  enable: true
+  tips: 如果你觉得本文对你有帮助，可以请我喝杯咖啡。
+  button_text: 好吧，请你喝一杯
+
+#是否显示标签云
+show_tagcloud: false
+  
+# Home page setting
+# path: Root path for your blogs index page. (default = '')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+index_generator:
+  path: ''
+  per_page: 5
+  order_by: -date
+  
+# Category & Tag
+default_category: 其他
+category_map:
+tag_map:
+
+# Date / Time format
+## Hexo uses Moment.js to parse and display date
+## You can customize the date format as defined in
+## http://momentjs.com/docs/#/displaying/format/
+date_format: YYYY-MM-DD
+time_format: HH:mm:ss
+
+# Pagination
+## Set per_page to 0 to disable pagination
+per_page: 20
+pagination_dir: page
+
+# Extensions
+## Plugins: https://hexo.io/plugins/
+## Themes: https://hexo.io/themes/
+theme: landscape
+
+# Deployment
+## Docs: https://hexo.io/docs/deployment.html
+deploy:
+  type:
+    
+#deploy:
+#  type: git
+#  repo: 
+#    coding: git@git.coding.net:Alisa_Destiny/hblog.git,master
