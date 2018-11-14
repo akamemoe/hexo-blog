@@ -20,16 +20,9 @@ install:
 script:
   - hexo clean
   - hexo g
-  - cd ./public
-  - git init
-  - git add .
-  - git commit -m "auto deploy by travis-ci"
-  - git push --force "https://Alisa_Destiny:${CODING_TOKEN}@${CODING_REF}" master:master
   
 after_success:
   - echo "deploy successfully"
-  - cd ..
-  - git push "https://Alisa_Destiny:${CODING_TOKEN}@${CODING_REF}" master:source
   
 after_failure:
   - echo "deploy failed."
