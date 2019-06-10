@@ -13,7 +13,7 @@ date: 2015-09-20 23:00:53
 ## 联系方式 ##
 
 ```
-EMAIL: bWVAZ2VudGxlaHUuY29tCg== (base64 encode,just for avoid SPAM)
+EMAIL: bWVAZ2VudGxlaHUuY29tCg== (base64 encoded,anti-SPAM)
 ```
 
 you can decode and see my email by run following command at your computer terminal:
