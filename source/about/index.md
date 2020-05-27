@@ -22,7 +22,7 @@ echo bWVAZ2VudGxlaHUuY29tCg== | base64 -d
 ```
 
 - if you have some question, please feel free to ask me via email.
-- if you find any inaccurate information about my blog please send an email to tell me and I will amend it as soon as possible.
+- if you find any inaccurate information in my post please send an email to tell me and I will amend it as soon as possible.
 
 
 <!--![wallpaper](/images/2017/09/my-wallpaper.jpg)-->

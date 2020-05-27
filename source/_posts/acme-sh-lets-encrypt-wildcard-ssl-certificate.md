@@ -12,6 +12,8 @@ tags: linux
 
 本文主要介绍了一种折衷的方法，将 ACME 认证域名单独托管至支持 API 的 DNS 服务商。即使 API Key 泄露，攻击者也无法篡改网站的其它 DNS 记录。
 
+
+<!--more-->
 选择一个 DNS 服务商
 ------------
 
@@ -84,25 +86,25 @@ export DO_API_KEY=eaf4d5db51c8f89a46d36ce1a216a94c483913b823c8cd3c9cd64498 （�
 接着根据你的实际需要，执行以下命令，为这些域名签署证书。
 
 1.  泛域名和根域名在同一张证书：
-```
-acme.sh --dns dns_dgon --issue -d example.com -d \*.example.com --domain-alias @.acme.example.com
-```
+	```
+	acme.sh --dns dns_dgon --issue -d example.com -d \*.example.com --domain-alias @.acme.example.com
+	```
 
-这张证书将包含两个域名：
-```
-example.com
-*.example.com
-```
+	这张证书将包含两个域名：
+	```
+	example.com
+	*.example.com
+	```
 
 2.  多个域名，泛域名和根域名在同一张证书：
-```
-acme.sh --dns dns_dgon --issue -d example.com -d \*.example.com -d example.org -d \*.example.org --domain-alias @.acme.example.com
-```
+	```
+	acme.sh --dns dns_dgon --issue -d example.com -d \*.example.com -d example.org -d \*.example.org --domain-alias @.acme.example.com
+	```
 
-这张证书将包含四个域名：
-```
-example.com
-*.example.com
-example.org
-*.example.org
-```
+	这张证书将包含四个域名：
+	```
+	example.com
+	*.example.com
+	example.org
+	*.example.org
+	```
