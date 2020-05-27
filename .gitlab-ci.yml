@@ -1,6 +1,11 @@
 image: node:8.11.2
 
+stages:
+  - build
+  - notify
+
 pages:
+  stage: build
   cache:
     paths:
     - node_modules/
@@ -18,3 +23,14 @@ pages:
   only:
   - master
 
+notify_me1:
+  stage: notify
+  when: on_success
+  script:
+  - echo "deploy successed."
+
+notify_me2:
+  stage: notify
+  when: on_failure
+  script:
+  - curl -s "https://sc.ftqq.com/${scu_key}.send?text=gitlab_pages_deploy_failed"
