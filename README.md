@@ -1,6 +1,6 @@
 # hexo-blog
 
-![Build Status](https://gitlab.com/Akame-moe/akame-moe.gitlab.io/badges/master/build.svg)  ![Hexo](https://img.shields.io/badge/hexo-3.3.8-blue.svg)
+[![build status](https://gitlab.com/Akame-moe/akame-moe.gitlab.io/badges/master/pipeline.svg)](https://gitlab.com/Akame-moe/akame-moe.gitlab.io/-/commits/master) ![Hexo](https://img.shields.io/badge/hexo-3.3.8-blue.svg) ![synchronized](https://img.shields.io/badge/github-synchronized-brightgreen)
 
 ### 这是hexo-blog的源码
 
