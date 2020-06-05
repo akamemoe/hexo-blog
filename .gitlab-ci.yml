@@ -23,13 +23,13 @@ pages:
   only:
   - master
 
-notify_me1:
+echo_on_success:
   stage: notify
   when: on_success
   script:
   - echo "deploy successed."
 
-notify_me2:
+notify_on_failure:
   stage: notify
   when: on_failure
   script:
