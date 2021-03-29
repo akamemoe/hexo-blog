@@ -6,4 +6,4 @@
 
 automatic build and deploy by gitlab CI/CD.
 
-(original source hosted on gitlab, this is a backup only and auto-synchronized with gitlab.)
+(original source hosted on gitlab, this is a backup only and auto-synchronized to gitlab.)
