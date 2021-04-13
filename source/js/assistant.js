@@ -28,8 +28,10 @@ $.fn.extend({
 });
 jQuery(document).ready(function ($) {
     if(!window.enable_assitant){
+        console.log('assitant disabled')
         return
     }
+    console.log('assitant enabled')
     $("body").append("<div id='spig' class='spig'><div id='message'>加载中……</div><div id='mumu' class='mumu'></div></div>");
     var qrstr = ["<div id='rewards'>",
                 "<div id='qrbox'>",
@@ -37,8 +39,8 @@ jQuery(document).ready(function ($) {
                 "<img class='qrcode alipay' src='/images/alipay_reward_qr.png' title='支付宝'/>",
                 "</div>",
                 "</div>"].join('');
-    $('#spig').append(qrstr);
-   
+    // $('#spig').append(qrstr);
+    $('body').append(qrstr);
     var $mumu = $("#mumu");
     var $message = $("#message");
     var $spig = $("#spig");

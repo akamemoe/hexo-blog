@@ -6,9 +6,8 @@
  */
 
 //document.write("<script src='/js/love.min.js'></script>");
-document.write("<script src='/js/assistant.js'></script>");
 /*
-在md文件中插入以下代码以执行js
+eval javescript code that in markdown file
 <pre id="scriptcode" style="display:none;">
 var s = document.title;
 console.log(s);
