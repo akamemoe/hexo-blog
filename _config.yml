@@ -51,7 +51,7 @@ highlight:
   tab_replace: "    "
 
 live2d:
-  enable: true
+  enable: false
   modeljson: /assets/pio/model-3.json
 
 #是否开启文章底部的打赏按钮配置
@@ -60,6 +60,9 @@ rewards:
   enable: true
   tips: 如果你觉得本文对你有帮助，可以请我喝杯咖啡。
   button_text: 好吧，请你喝一杯
+
+assistant:
+  enable: false
 
 #是否显示标签云
 show_tagcloud: false

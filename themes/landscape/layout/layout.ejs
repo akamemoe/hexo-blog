@@ -22,6 +22,11 @@
     <script src='/js/live2d.js'></script>
     <script>loadlive2d('pio', '<%- config.live2d.modeljson %>');</script>
   <% } %>
+  <% if (config.assistant.enable){ %>
+    <script>window.enable_assitant = true;</script>
+  <% } else { %>
+    <script>window.enable_assitant = false;</script>
+  <% } %>
   <script src="/js/customized.js"></script>
   <!--custom end-->
 

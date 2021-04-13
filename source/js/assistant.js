@@ -1,4 +1,3 @@
-//哎哟，不错哟，恭喜你，居然能猜到源码和压缩过的代码在同一个目录
 
 //扩展jquery库，重写addClass函数，使之适应各种浏览器，并且可添加动画完成的回调函数
 $.fn.extend({
@@ -28,6 +27,9 @@ $.fn.extend({
   },
 });
 jQuery(document).ready(function ($) {
+    if(!window.enable_assitant){
+        return
+    }
     $("body").append("<div id='spig' class='spig'><div id='message'>加载中……</div><div id='mumu' class='mumu'></div></div>");
     var qrstr = ["<div id='rewards'>",
                 "<div id='qrbox'>",
