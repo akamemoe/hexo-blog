@@ -27,6 +27,7 @@ $.fn.extend({
   },
 });
 jQuery(document).ready(function ($) {
+    $('body').append(qrstr);
     if(!window.enable_assitant){
         console.log('assitant disabled')
         return
@@ -40,7 +41,7 @@ jQuery(document).ready(function ($) {
                 "</div>",
                 "</div>"].join('');
     // $('#spig').append(qrstr);
-    $('body').append(qrstr);
+    
     var $mumu = $("#mumu");
     var $message = $("#message");
     var $spig = $("#spig");
