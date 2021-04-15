@@ -3,8 +3,8 @@ menu:
   Home: /
   Archives: /archives
   About: /about
-  'Image Hosting': 'https://www.gentlehu.com'
-  Timeline: 'http://timeline.gentlehu.com'
+  ImageHosting: https://www.imgur.com
+  ToBeContinued: /
 
 rss: /atom.xml
 

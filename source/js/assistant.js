@@ -26,8 +26,37 @@ $.fn.extend({
     return this;
   },
 });
-jQuery(document).ready(function ($) {
+function bindrewards(){
+    let qrstr = ["<div id='rewards'>",
+                "<div id='qrbox'>",
+                "<img class='qrcode wechat' src='/images/wx_reward_qr.png' title='微信'/>",
+                "<img class='qrcode alipay' src='/images/alipay_reward_qr.png' title='支付宝'/>",
+                "</div>",
+                "</div>"].join('');
     $('body').append(qrstr);
+    let $rewards = $('#rewards');
+    $('#btn-support').on('click',function(e){
+        if($rewards.is(':hidden')){
+            $rewards.show();
+            $rewards.animateCss('fadeInDown');
+        }
+        e.stopPropagation();
+    });
+    $('body').on('click',function(){
+        if(!$rewards.is(':hidden')){
+            $rewards.animateCss('fadeOutDown',()=>{
+                $rewards.hide();
+            });
+        }
+    });
+    $rewards.on('click',function(e){
+        e = e || window.e;
+        e.stopPropagation();
+    });
+};
+
+jQuery(document).ready(function ($) {
+    bindrewards();
     if(!window.enable_assitant){
         console.log('assitant disabled')
         return

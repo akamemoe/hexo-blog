@@ -11,6 +11,7 @@ Because Travis CI can automatically execute scripts after successfully (or unsuc
 - Push to the remote
 - SSH into the server and execute any installation/compilation/miscellaneous commands
 
+<!--more-->
 ## Before even touching `.travis.yml`...
 
 ### Users
