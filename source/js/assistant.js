@@ -27,13 +27,13 @@ $.fn.extend({
   },
 });
 function bindrewards(){
-    let qrstr = ["<div style='position:fixed;margin:auto;'><div id='rewards'>",
+    let qrstr = ["<div style='position:fixed;margin:auto;z-index:999'><div id='rewards'>",
                 "<div id='qrbox'>",
                 "<img class='qrcode wechat' src='/images/wx_reward_qr.png' title='微信'/>",
                 "<img class='qrcode alipay' src='/images/alipay_reward_qr.png' title='支付宝'/>",
                 "</div>",
                 "</div></div>"].join('');
-    $('body').append(qrstr);
+    $('#container').append(qrstr);
     let $rewards = $('#rewards');
     $('#btn-support').on('click',function(e){
         if($rewards.is(':hidden')){
@@ -53,15 +53,16 @@ function bindrewards(){
         e = e || window.e;
         e.stopPropagation();
     });
+    console.log('reward binded')
 };
 
 jQuery(document).ready(function ($) {
     bindrewards();
-    if(!window.enable_assitant){
-        console.log('assitant disabled')
+    if(!window.enable_assistant){
+        console.log('assistant disabled')
         return
     }
-    console.log('assitant enabled')
+    console.log('assistant enabled')
     $("body").append("<div id='spig' class='spig'><div id='message'>加载中……</div><div id='mumu' class='mumu'></div></div>");
     var qrstr = ["<div id='rewards'>",
                 "<div id='qrbox'>",

@@ -23,10 +23,13 @@
     <script>loadlive2d('pio', '<%- config.live2d.modeljson %>');</script>
   <% } %>
   <% if (config.assistant.enable){ %>
-    <script>window.enable_assitant = true;</script>
+    <script>window.enable_assistant = true;</script>
     <script src='/js/assistant.js'></script>
   <% } else { %>
-    <script>window.enable_assitant = false;</script>
+    <script>window.enable_assistant = false;</script>
+  <% } %>
+  <% if (config.rewards.enable && is_post() && !post.rewards_disable){ %>
+    <script src='/js/rewards.js'></script>
   <% } %>
   <script src="/js/customized.js"></script>
   <!--custom end-->
