@@ -26,7 +26,7 @@
             return this;
         },
     });
-    let qrstr = ["<div id='rewards-box' style='top:0;left:0;display:none;position:fixed;z-index:100;height:100%;width:100%;background-color:rgba(192,192,192,0.3);'><div id='rewards'>",
+    let qrstr = ["<div id='rewards-box' style='top:0;left:0;display:none;position:fixed;z-index:100;height:100%;width:100%;background-color:rgba(156,156,156,0.5);'><div id='rewards'>",
         "<div id='qrbox'>",
         "<img class='qrcode wechat' src='/images/wx_reward_qr.png' title='微信'/>",
         "<img class='qrcode alipay' src='/images/alipay_reward_qr.png' title='支付宝'/>",
