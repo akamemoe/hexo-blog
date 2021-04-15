@@ -1,4 +1,4 @@
-(function () {
+jQuery(document).ready(function ($) {
     $.fn.extend({
         animateCss: function (animationName, callback) {
             var animationEnd = (function (el) {
@@ -36,15 +36,18 @@
     let $rewards_box = $('#rewards-box');
     let $rewards = $('#rewards');
     $('#btn-support').on('click', function (e) {
+        $rewards_box.css('opacity',0)
         $rewards_box.css('display','block')
+        $rewards_box.animate({opacity: 1},700)
         $rewards.show();
         $rewards.animateCss('rollIn');
         e.stopPropagation();
     });
-    $rewards_box.on('click', function () {
+    $rewards_box.on('click', function (e) {
         console.log('$rewards_box click');
-        
+        $rewards_box.animate({opacity: 0},700)
         $rewards.animateCss('rollOut',()=>{$rewards.hide();$rewards_box.css('display','none');});
+        e.stopPropagation();
     });
     /*
     $rewards.on('click', function (e) {
@@ -52,4 +55,4 @@
         e.stopPropagation();
     });*/
     console.log('reward binded')
-})();
+});
