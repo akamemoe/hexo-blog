@@ -27,12 +27,12 @@ $.fn.extend({
   },
 });
 function bindrewards(){
-    let qrstr = ["<div id='rewards'>",
+    let qrstr = ["<div style='position:fixed;margin:auto;'><div id='rewards'>",
                 "<div id='qrbox'>",
                 "<img class='qrcode wechat' src='/images/wx_reward_qr.png' title='微信'/>",
                 "<img class='qrcode alipay' src='/images/alipay_reward_qr.png' title='支付宝'/>",
                 "</div>",
-                "</div>"].join('');
+                "</div></div>"].join('');
     $('body').append(qrstr);
     let $rewards = $('#rewards');
     $('#btn-support').on('click',function(e){
