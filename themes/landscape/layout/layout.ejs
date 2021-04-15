@@ -28,7 +28,7 @@
   <% } else { %>
     <script>window.enable_assistant = false;</script>
   <% } %>
-  <% if (config.rewards.enable && is_post() && !post.rewards_disable){ %>
+  <% if (config.rewards.enable){ %>
     <script src='/js/rewards.js'></script>
   <% } %>
   <script src="/js/customized.js"></script>
