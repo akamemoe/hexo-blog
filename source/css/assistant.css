@@ -41,6 +41,8 @@
     position: relative;
     margin-top: -100px;
     margin-left: -211px;
+    top: 50%;
+    left: 50%;
 }
 #qrbox{
     position: relative;
