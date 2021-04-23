@@ -16,10 +16,9 @@ EMAIL: bWVAZ2VudGxlaHUuY29tCg== (base64 encoded,anti-spammer)
 
 - please feel free to issue anything that you confused by email.
 
-<br>
-<br>
-<br>
-<video controls> <1--width="850" height="637"-->
+
+
+<video controls> <!--width="850" height="637"-->
   <source src="https://res.cloudinary.com/akame-moe/video/upload/v1618428214/yuanbingyan.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
