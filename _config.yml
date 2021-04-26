@@ -46,11 +46,20 @@ render_drafts: false
 post_asset_folder: false
 relative_link: false
 future: true
+
+
 highlight:
-  enable: true
+  enable: false
   line_number: true
   auto_detect: false
   tab_replace: "    "
+
+#Prismjs is disabled by default. You should set highlight.enable to false before enabling prismjs.
+prismjs:
+  enable: true
+  preprocess: true
+  line_number: true
+  tab_replace: '    '
 
 live2d:
   enable: false
