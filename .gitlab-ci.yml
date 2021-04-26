@@ -11,12 +11,12 @@ pages:
     - node_modules/
 
   before_script:
-    - git config --global user.name "Akame-moe"
-    - git config --global user.email "me@gentlehu.com"
+    - echo "node version $(node -v)"
+    - echo "npm version $(npm -v)"
   script:
   - npm install hexo-cli -g
   - npm install
-  - hexo deploy
+  - hexo g
   artifacts:
     paths:
     - public

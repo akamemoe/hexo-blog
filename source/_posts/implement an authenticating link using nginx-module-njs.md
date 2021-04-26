@@ -18,6 +18,7 @@ sudo apt-get update
 sudo apt-get install nginx nginx-module-njs
 ```
 
+<!--more-->
 ### authentication.js
 ```js
 var cr = require('crypto')
