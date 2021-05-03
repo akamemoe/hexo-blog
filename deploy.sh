@@ -1,2 +1,2 @@
 #!bash
-git add . && git commit -m "update on $(date +%F)" && git push origin master
+git add . && git commit -m "updated on $(date +%F)" && git push origin master

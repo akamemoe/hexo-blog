@@ -22,34 +22,34 @@ sudo apt-get install nginx nginx-module-njs
 ### authentication.js
 ```js
 var cr = require('crypto')
-var reg = /\/(\d+?)\/(\w+)(.*)/
+var reg = /^\/(\d+)\/(\w+)\/(.*)$/
 var secure_key = "yoursecurekey"
 var b = Buffer.from(secure_key.toUTF8().slice(0,4))
 var mask = ((b[0] << 24) | (b[1] << 16) | (b[2] << 8) | b[3])
 function authenticate(r) {
-        var uri = r.uri
-        var m = uri.match(reg)
-        if(m.length != 4){
+        var m = r.uri.match(reg)
+        if(!m || m.length != 4){
             return "0";
         }
-        var hashval = cr.createHash('md5').update(secure_key + m[1] + m[3]).digest("hex").substr(0,30);
+        var hashval = cr.createHash('md5').update(secure_key + m[1] + m[3]).digest("hex").substr(0,30); //misguide the bad guys on the signing algorithm
         if (hashval != m[2]){
             return "0";
         }
-        var now = Date.parse(new Date())/1000;
-        var expires = parse_expires(m[1]);
-        if (expires - now < 0){
+        
+        var duration = parse_expires(m[1]);
+        if (duration < 0){
             return "0";
         }
-        r.headersOut["Expires-In"] = (expires - now) + "s"
+        r.headersOut["Expires-In"] = duration + "s"
         return "1"
 }
 function parse_expires(e){
     var ee = parseInt(e)
-    return ee ^ mask
+    var now = Date.parse(new Date())/1000;
+    return (ee ^ mask) - now
 }
+export default { authenticate };
 
-export default {authenticate}
 ```
 
 ### nginx.conf
@@ -62,7 +62,6 @@ load_module modules/ngx_http_js_module.so;
 
 events {
         worker_connections 768;
-        # multi_accept on;
 }
 
 http {
@@ -70,8 +69,8 @@ http {
     default_type  application/octet-stream;
     server_tokens off;
     sendfile        on;
-    js_include authentication.js;
-    js_set $auth_result authenticate;
+    js_import auth from authenticator.js;
+    js_set $auth_result auth.authenticate;
     server {
         listen              80;
         server_name         _;
@@ -79,15 +78,17 @@ http {
         error_log  /home/log/error.log;
         charset utf-8;
         location ~* /(\d+)/(\w+)/(.+) {
-            if ($auth_result = "0"){
+            if($auth_result = "0"){
                 return 403;
             }
-            alias /downloads;
+            alias /home/downloads;
             try_files /$3 =404;
         }
 
     }
+
 }
+
 
 ```
 
@@ -97,28 +98,45 @@ http {
 import click
 import hashlib
 import time
+import re
 
 secure_key = 'yoursecurekey'
-t = [int(x) for x in secure_key.encode()[:4]]
-mask = ((t[0] << 24) | (t[1] << 16) | (t[2] << 8) | t[3])
+
+b = [int(x) for x in secure_key.encode()[:4]]
+mask = ((b[0] << 24) | (b[1] << 16) | (b[2] << 8) | b[3])
+
+
+pattern = re.compile(r'^(\d+)(d|h|m)$')
+def parse_duration(e):
+    g = pattern.search(e)
+    if g:
+        d,u = g.groups()
+        if u == 'm':
+            return int(d)
+        if u == 'h':
+            return int(d) * 60
+        if u == 'd':
+            return int(d) * 60 * 24
+    return 60
 
 
 @click.command()
-@click.option("-e",default=10,help="minutes to expires")
-@click.option("-f",help="the file path base to ~/downloads, should be always starts with /")
+@click.option("-e",default="1h",help="expires duration. i.e. 9m/5h/1d")
+@click.option("-f",help="the file path base to alias or root directive value. i.e. foo/bar.txt")
 def main(e,f):
     if not f:
-        click.echo("the f parameter can't be null")
+        print("the parameter f can not be null")
         return
     now = int(time.time())
+    e = parse_duration(e)
     expires = now + (e * 60)
     masked_expires = str(expires ^ mask)
-    s = secure_key + expire + f
+    s = secure_key + masked_expires + f
     hasher = hashlib.md5()
     hasher.update(s.encode())
     hashval = hasher.hexdigest()[:30]
-    link = 'https://v.gentlehu.com/{}/{}{}'.format(em,hashval,f)
-    click.echo(link)
+    link = 'http://<YOURHOST>/{}/{}/{}'.format(masked_expires,hashval,f)
+    print(link)
 
 if __name__ == '__main__':
     main()
@@ -126,8 +144,7 @@ if __name__ == '__main__':
 
 ### link generator usage
 ```bash
-python gen_link.py -f /path/to/file.txt -e 10
+python gen_link.py -f path/to/file.txt -e 3h #the generated link will be expires in 3 hours 
 ```
-this script generate a link to file.txt and expires in 10 minutes
 
 

@@ -49,14 +49,14 @@ future: true
 
 
 highlight:
-  enable: false
+  enable: true
   line_number: true
   auto_detect: false
   tab_replace: "    "
 
 #Prismjs is disabled by default. You should set highlight.enable to false before enabling prismjs.
 prismjs:
-  enable: true
+  enable: false
   preprocess: true
   line_number: true
   tab_replace: '    '
