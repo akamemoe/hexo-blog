@@ -124,7 +124,7 @@ feed:
   template:
 
 html_minifier:  
-  exclude: *.html
+  exclude: "*.html"
   # collapseBooleanAttributes: true
   # collapseWhitespace: true
   # Ignore '<!-- more -->' https://hexo.io/docs/tag-plugins#Post-Excerpt
