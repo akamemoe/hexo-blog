@@ -17,10 +17,6 @@ pages:
   - npm install hexo-cli -g
   - npm install
   - hexo g
-  - npm install html-minifier -g
-  - html-minifier --collapse-whitespace --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --file-ext html --input-dir public --output-dir public
-  - html-minifier --collapse-whitespace --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --file-ext js --input-dir public --output-dir public
-  - html-minifier --collapse-whitespace --remove-optional-tags --remove-redundant-attributes --remove-script-type-attributes --remove-tag-whitespace --use-short-doctype --minify-css true --minify-js true --file-ext css --input-dir public --output-dir public
   artifacts:
     paths:
     - public
