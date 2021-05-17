@@ -13,6 +13,7 @@ pages:
   before_script:
     - echo "node version $(node -v)"
     - echo "npm version $(npm -v)"
+    - openssl version
   script:
   - npm install hexo-cli -g
   - npm install
