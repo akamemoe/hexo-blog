@@ -4,7 +4,7 @@ date: 2021-04-10 11:11:17
 tags: [nginx]
 ---
 
-sometimes, we need an authenticated link to protect our file form abuse.  
+sometimes, we need an authenticated link to provent our resources form abusing.  
 now we will accomplish that by using nginx-module-njs. here we go.
 
 
