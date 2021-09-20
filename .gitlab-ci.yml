@@ -28,7 +28,7 @@ echo_on_success:
   stage: notify
   when: on_success
   script:
-  - echo "successful deployment"
+  - echo "pages successfully deployed"
 
 notify_on_failure:
   stage: notify
