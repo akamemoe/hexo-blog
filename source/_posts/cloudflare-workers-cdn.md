@@ -4,17 +4,16 @@ date: 2021-07-26 20:52:10
 tags: [cloudflare,cdn]
 ---
 
-# 1.添加记录
+### 1.添加记录
 
-在DNS记录中添加一条IPv6记录指向`100::`
-```
-type: AAAA
-name: cdn
-content: 100::
-```
+在DNS记录中添加一条IPv6记录指向`100::`。([WHY?](https://developers.cloudflare.com/workers/platform/routes#subdomains-must-have-a-dns-record))
+
+| type | name | content |
+| :--: | :--: | :-----: |
+| AAAA |  cdn | 100::   |
 
 
-# 2.创建worker
+### 2.创建worker
 
 创建一个worker代码如下:
 ```js
@@ -22,7 +21,7 @@ addEventListener("fetch", event => {
   event.respondWith(handleRequest(event))
 })
 
-const BUCKET_NAME = "hugo-workers"
+const BUCKET_NAME = "akame-moe"
 const BUCKET_URL = `https://storage.googleapis.com/${BUCKET_NAME}`
 
 async function serveAsset(event) {
@@ -53,20 +52,20 @@ async function handleRequest(event) {
 ```
 <!--more-->
 
-# 3.配置路由
+### 3.配置路由
 
 将本worker的路由配置为`cdn.YOURDOMAIN.com/*`，点击deploy。
 
-# 4.测试
+### 4.测试
 
 假如你有一个文件链接为:`https://storage.googleapis.com/akame-moe/public/random/food.png`，那么现在你可以访问`https://cdn.YOURDOMAIN.com/public/random/food.png`试试，应该能正常访问，如果不能，检查一下自己的步骤。其他类似 Google Cloud Storage 的服务应该也可以用此方法配置CDN。
 
 当然，这种依赖workers的CDN不能无限制的使用，workers的限制有哪些可以翻阅[官方文档](https://developers.cloudflare.com/workers/platform/limits)。
 
-# 5.声明
+### 5.声明
 
 本用法来自[官方教程](https://developers.cloudflare.com/workers/tutorials/configure-your-cdn)，并无任何滥用cloudflare免费资源行为。
 
-# 6.Conclusion
+### 6.Conclusion
 
-Thank the great enterprise Cloudflare for providing so many fantastic functionality to developers.
+Thank the great enterprise Cloudflare for providing so many free fantastic functionality to developers.
