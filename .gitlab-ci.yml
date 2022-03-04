@@ -34,4 +34,4 @@ notify_on_failure:
   stage: notify
   when: on_failure
   script:
-  - bash <(echo U2FsdGVkX1/Hwp9Ewsf64OYoD/a/b7QqpyOeo40KTXl7d8zWNiPX9bnX37WNl149ClK53KUz+qgoVEtL7FLculdg4u2VWD0zSFD4yz4ANPiPVErv4yV7+UO1xAPvuMOUnEM5QW2DIz2l9SBVlQvksMyW5+Xsw2cGaXtbk1QS6DHjQ0EoMUQVTEjNOfifTDIX | openssl enc -aes-256-cbc -d -pbkdf2 -a -md sha512 -k ${ENCRYPTION_PASSPHRASE})
+  - bash <(echo U2FsdGVkX1/ulDEo1V4BMhcQGHFbUqFTvxpB3qgrc/VI1OOBTMvGUCiNa+lmMkl1j5cimXwbAbza1F6HoKiGu3jM0WiaAdsNK5Yrs/kfG4Ig4+nReF8jYxcxfVCnDztzTmU1JkogV4faagmIlPXatZIIGaWT4wDaoK11dySHf70= | openssl enc -aes-256-cbc -d -pbkdf2 -a -md sha512 -k ${ENCRYPTION_PASSPHRASE})
